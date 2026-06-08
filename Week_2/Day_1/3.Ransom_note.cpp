@@ -1,0 +1,25 @@
+class Solution {
+public:
+    bool canConstruct(string ransomNote, string magazine) {
+
+        for(int i = 0; i < ransomNote.size(); i++)
+        {
+            bool found = false;
+
+            for(int j = 0; j < magazine.size(); j++)
+            {
+                if(ransomNote[i] == magazine[j])
+                {
+                    found = true;
+                    magazine[j] = '#'; // mark used
+                    break;
+                }
+            }
+
+            if(!found)
+                return false;
+        }
+
+        return true;
+    }
+};
